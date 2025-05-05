@@ -23,6 +23,8 @@ using Microsoft.Extensions.Logging;
 
 try
 {
+    LogDebugArgs(args);
+
     ServiceCollection services = new();
     ConfigureServices(services);
     var serviceProvider = services.BuildServiceProvider();
@@ -43,6 +45,26 @@ catch (Exception ex)
 
     Console.WriteLine(JsonSerializer.Serialize(response, ModelsJsonContext.Default.CommandResponse));
     return 1;
+}
+
+static void LogDebugArgs(string[] args)
+{
+    string debug = Environment.GetEnvironmentVariable("DEBUG") ?? string.Empty;
+
+    bool isDebugEnabled =
+        debug.Equals("true", StringComparison.OrdinalIgnoreCase) ||
+        debug.Contains("azure-mcp", StringComparison.OrdinalIgnoreCase) ||
+        debug == "*";
+
+    if (isDebugEnabled)
+    {
+        Console.Error.WriteLine("\n.NET Process starting:");
+        Console.Error.WriteLine("All args:");
+        for (int i = 0; i < args.Length; i++)
+        {
+            Console.Error.WriteLine($"  {i}: {args[i]}");
+        }
+    }
 }
 
 static void ConfigureServices(IServiceCollection services)
