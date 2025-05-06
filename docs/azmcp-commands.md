@@ -48,6 +48,37 @@ azmcp cosmos database container item query --subscription <subscription> \
                        [--query "SELECT * FROM c"]
 ```
 
+### PostgreSQL Operations
+
+```bash
+## Databae commands
+
+# List all databases in a PostgreSQL server
+azmcp postgres database list --subscription <subscription> --resource-group <resource-group> --user-name <user> --server <server>
+
+# Execute a query on a PostgreSQL database
+azmcp postgres database query --subscription <subscription> --resource-group <resource-group> --user-name <user> --server <server> --database <database> --query <query>
+
+## Table Commands
+
+# List all tables in a PostgreSQL database
+azmcp postgres table list --subscription <subscription> --resource-group <resource-group> --user-name <user> --server <server> --database <database>
+
+# Get the schema of a specific table in a PostgreSQL database
+azmcp postgres table schema --subscription <subscription> --resource-group <resource-group> --user-name <user> --server <server> --database <database> --table <table>
+
+## Server Commands
+
+# List all PostgreSQL servers in a subscription & resource group
+azmcp postgres server list --subscription <subscription> --resource-group <resource-group> --user-name <user>
+
+# Retrieve the configuration of a PostgreSQL server
+azmcp postgres server config --subscription <subscription> --resource-group <resource-group> ----user-name <user> --server <server>
+
+# Retrieve a specific parameter of a PostgreSQL server
+azmcp postgres server param --subscription <subscription> --resource-group <resource-group> --user-name <user> --server <server> --param <parameter>
+```
+
 ### Storage Operations
 ```bash
 # List Storage accounts in a subscription

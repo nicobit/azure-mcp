@@ -1,14 +1,10 @@
 # Release History
 
-## 0.0.12 (Unreleased)
+## 0.0.12 (2025-05-05)
 
 ### Features Added
 
 - Azure Search Tools https://github.com/Azure/azure-mcp/pull/83
-
-### Breaking Changes
-
-### Bugs Fixed
 
 ### Other Changes
 
