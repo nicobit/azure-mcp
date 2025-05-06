@@ -53,7 +53,7 @@ internal class Program
                 Duration = 0
             };
 
-          Console.WriteLine(JsonSerializer.Serialize(response, ModelsJsonContext.Default.CommandResponse));
+            Console.WriteLine(JsonSerializer.Serialize(response, ModelsJsonContext.Default.CommandResponse));
             return 1;
         }
     }
