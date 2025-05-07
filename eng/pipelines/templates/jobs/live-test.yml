@@ -56,8 +56,9 @@ jobs:
         ${{insert}}: ${{ parameters.EnvVars }}
 
   - pwsh: |
-      ./eng/script/Build-Local.ps1
+      ./eng/scripts/Build-Local.ps1
     displayName: "Build local package"
+    workingDirectory: $(Build.SourcesDirectory)
 
   - task: AzurePowershell@5
     displayName: "Run tests - az pwsh"
